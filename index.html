@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.carousel {
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slides img {
+  width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="carousel">
+  <div class="slides" id="slides">
+    <img src="https://picsum.photos/600/300?1">
+    <img src="https://picsum.photos/600/300?2">
+    <img src="https://picsum.photos/600/300?3">
+  </div>
+</div>
+
+<script>
+let index = 0;
+setInterval(() => {
+  const slides = document.getElementById('slides');
+  const total = slides.children.length;
+  index = (index + 1) % total;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+}, 2000);
+</script>
+
+</body>
+</html>
